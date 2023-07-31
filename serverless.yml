@@ -1,0 +1,49 @@
+service:  nest-serverless
+frameworkVersion: '3'
+useDotenv:  true
+
+provider:
+  name: aws
+  architecture: arm64
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  region: 'af-south-1'
+  memorySize: 128
+  timeout: 15
+  environment:
+    JWT_SECRET: ${env:JWT_SECRET}
+    DB_TYPE: ${env:DB_TYPE}
+    DB_HOST: ${env:DB_HOST}
+    DB_USERNAME: ${env:DB_USERNAME}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_PORT: ${env:DB_PORT}
+    DB_ENTITIES: ${env:DB_ENTITIES}
+    DB_SYNCHRONISE: ${env:DB_SYNCHRONISE, 'true'}
+
+functions:
+  api:
+    handler: dist/serverless.handler
+    events:
+      - httpApi:
+          method: any
+          path: /{proxy+}
+
+package:
+  individually: false
+  exclude:
+    - package-log.json
+    - node_modules/**
+    - .vscode/**
+plugins: 
+  - serverless-offline 
+  - serverless-jetpack
+  # - serverless-plugin-typescript
+  - serverless-plugin-optimize
+  - serverless-plugin-warmup
+
+# custom:
+#   warmup:     
+#     enabled: true 
+
+
+    
