@@ -28,18 +28,18 @@ functions:
           method: any
           path: /{proxy+}
 
-package:
-  individually: false
-  exclude:
-    - package-log.json
-    - node_modules/**
-    - .vscode/**
+# package:
+#   individually: false
+#   exclude:
+#     - package-log.json
+#     - node_modules/**
+#     - .vscode/**
 plugins: 
   - serverless-offline 
   - serverless-jetpack
   # - serverless-plugin-typescript
-  - serverless-plugin-optimize
-  - serverless-plugin-warmup
+  # - serverless-plugin-optimize
+  # - serverless-plugin-warmup
 
 # custom:
 #   warmup:     

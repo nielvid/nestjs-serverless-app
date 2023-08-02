@@ -4,8 +4,8 @@ POST {{host}}/users
 Content-Type: application/json
 
 {
-    "first_name": "Bolajoke",
-    "last_name": "Adejoke"
+    "first_name": "Buhari",
+    "last_name": "Muhammed"
 }
 
 ###
