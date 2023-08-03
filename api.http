@@ -1,11 +1,11 @@
-@host = http://localhost:3000
+@host = https://z1brh9zbgk.execute-api.af-south-1.amazonaws.com
 
 POST {{host}}/users
 Content-Type: application/json
 
 {
-    "first_name": "Buhari",
-    "last_name": "Muhammed"
+    "first_name": "Waheed",
+    "last_name": "Ismaila"
 }
 
 ###
