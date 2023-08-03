@@ -1,4 +1,4 @@
-@host = https://z1brh9zbgk.execute-api.af-south-1.amazonaws.com
+@host = http://localhost:8080
 
 POST {{host}}/users
 Content-Type: application/json
